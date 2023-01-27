@@ -1,7 +1,6 @@
 '''
-(c) Joshua Rahmlow - Rheinische Gesellschaft für Diakonie gGmbH 2023
 Program: BS LS5.3 - Maklerauftrag
-Author: Joshua Rahmlow
+Author: Joshua Rahmlow, Matteo Barjollo
 '''
 
 ## Static ##
