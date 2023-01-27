@@ -69,7 +69,11 @@ for i in range(val_rooms):
 
 area = sum(list_of_roomspace) ## sum all rooms in the list/flat ##
 
-if val_rooms != 0:
+if val_rooms != 0 and val_rooms >= 0:
     print("\n\nDie Wohnung ist ", area, "Quadratmeter groß.") ## print out the flats's area
+
+elif val_rooms != 0 and val_rooms <= 0:
+    print("\n\nEine negative Raumanzahl funktioniert nicht") ## print out the flats's area
+
 else:
     print('\nDie Wohnung hat 0 Räume, somit keine Fläche.')
