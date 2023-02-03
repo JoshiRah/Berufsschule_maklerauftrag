@@ -3,12 +3,13 @@ Program: BS LS5.3 - Maklerauftrag
 Author: Joshua Rahmlow, Matteo Barjollo
 '''
 
-## Static ##
+## constants and variables ##
 
 user_error = 'Fehler bei Datenaufnahme\n'
 list_of_roomspace = []
 
-## System ##
+
+## some magic ##
 
 while True:
     try:
@@ -20,7 +21,7 @@ while True:
 for i in range(val_rooms):
     print("\nRaum Nr. ", i+1, ":")
 
-    if input("\nIst der Raum rechteckig? (y/n) ") == "y": ## room rectengular? ##
+    if input("\nIst der Raum rechteckig? (y/n) ") == "y":
         while True:
             try:
                 lengh = float(input("Länge: "))
@@ -33,20 +34,21 @@ for i in range(val_rooms):
                 break
             except:
                 print(user_error)
+
         r = lengh * width
         list_of_roomspace.append(r)
 
-    else: ## if room is not rectengular ##
-        list_of_room = [] ## create a list to calculate the not rectengular room ##
+    else:
+        list_of_room = []
 
         while True:
             try:
-                log_rect = int(input("\nIn wie viele logische Rechtecke soll der Raum eingeteilt werden? ")) ##
+                log_rect = int(input("\nIn wie viele logische Rechtecke soll der Raum eingeteilt werden? "))
                 break
             except:
                 print(user_error)
 
-        for l in range(log_rect): ## calculate the log rectengulars ##
+        for l in range(log_rect):
             print("\nBerechnung des ", l+1, ". logischen Rechtecks")
             while True:
                 try:
@@ -61,18 +63,20 @@ for i in range(val_rooms):
                 except:
                     print(user_error)
 
-            r_log_rect = len_log_rect * witdh_log_rect ## calculate the area logic rectengular ##
-            list_of_room.append(r_log_rect) ## append the area of the logic rectengular to a list of this room ##
+            r_log_rect = len_log_rect * witdh_log_rect
+            list_of_room.append(r_log_rect)
 
-        list_of_roomspace.append(sum(list_of_room)) ## append the not-rectengular room to the flat ##
+        list_of_roomspace.append(sum(list_of_room))
 
-area = sum(list_of_roomspace) ## sum all rooms in the list/flat ##
+
+## some facts to the user ##
 
 if val_rooms != 0 and val_rooms >= 0:
-    print("\n\nDie Wohnung ist ", area, "Quadratmeter groß.") ## print out the flats's area
+    area = sum(list_of_roomspace)
+    print("\n\nDie Wohnung ist ", area, "Quadratmeter groß.")
 
 elif val_rooms != 0 and val_rooms <= 0:
-    print("\n\nEine negative Raumanzahl funktioniert nicht") ## print out the flats's area
+    print("\n\nEine negative Raumanzahl funktioniert nicht")
 
 else:
     print('\nDie Wohnung hat 0 Räume, somit keine Fläche.')
